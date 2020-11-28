@@ -10,7 +10,7 @@ ENV INCONTEXT_DIR /usr/local/src/incontext
 # Install the package dependencies.
 WORKDIR ${INCONTEXT_DIR}
 COPY . ${INCONTEXT_DIR}/
-RUN apt-get update
+RUN apt-get update --fix-missing
 RUN bash -c "cat docker/requirements.txt | xargs apt-get install -y"
 
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
